@@ -1,2 +1,2 @@
-# Learning-ocean
-Learning ocean project
+# Learning-Ocean
+This is a learning ocean project
