@@ -15,7 +15,6 @@
    outline: none; border:none;
    text-decoration: none;
    transition: .2s linear;
-   text-transform: capitalize;
 }
 
 *::selection{
@@ -236,7 +235,24 @@ section{
    /* height: 50; */
    width: 60%;
 }
-
+#img1{
+   width: 63.5%;
+}
+#img2{
+   width: 80.5%;
+}
+#img3{
+   width: 63.5%;
+}
+#img4{
+   width: 81.5%;
+}
+#img5{
+   width: 79%;
+}
+#img6{
+   width: 66.5%;
+}
 .courses .slide h3{
    margin:1.5rem 0;
    font-size: 2rem;
@@ -304,7 +320,7 @@ section{
 }
 
 .teachers .slide .share a:hover{
-   background-color: var(--green);
+   background-color:#0171d3;
    color:var(--white);
 }
 
@@ -638,6 +654,8 @@ form{
 .field input:focus{
     border-bottom-width: 2px;
 }
+
+
 .eye-icon{
     position: absolute;
     top: 50%;
