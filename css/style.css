@@ -95,7 +95,11 @@ section{
    align-items: center;
    justify-content: space-between;
 }
-
+.img-down{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 .header .flex .logo{
    font-size: 2.5rem;
    color:var(--white);
@@ -582,9 +586,12 @@ section{
     z-index: 8;
     position: absolute;
     left: 50%;
-    top: -50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     transition: 2s;
+}
+.g-signin2{
+   width: 100%;
 }
 .showform{
    top: 50%;
@@ -627,6 +634,8 @@ header{
     color: #232836;
     text-align: center;
 }
+
+
 form{
     margin-top: 30px;
 }
@@ -709,20 +718,37 @@ form{
     color: #8b8b8b;
     padding: 0 15px;
 }
+.flex{
+   display: flex;
+   gap: 120px;
+}
 .media-options a{
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 13px;
     justify-content: center;
+}
+.media-options .field{
+   height:38px ;
+   width: 120px;
+   border-radius: 0;
+   box-shadow: 0px 1px 5px gray;
+}
+#my-signin2{
+   margin-top: 21px;
+}
+.media-options .field:hover{
+   box-shadow: 2px 2px 5px rgb(36, 113, 255);
 }
 a.facebook{
     color: #fff;
+    font-weight: 500;
     background-color: #4267b2;
 }
 a.facebook .facebook-icon{
-    height: 28px;
-    width: 28px;
-    color: #0171d3;
+    height: 25px;
+    width: 25px;
+    color: #177ed8;
     font-size: 20px;
     border-radius: 50%;
     display: flex;
@@ -730,11 +756,15 @@ a.facebook .facebook-icon{
     justify-content: center;
     background-color: #fff;
 }
+.media-options a span{
+   position: absolute;
+   left: 50px;
+}
 .facebook-icon,
 img.google-img{
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 7px;
     transform: translateY(-50%);
 }
 img.google-img{
