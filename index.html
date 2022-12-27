@@ -4,12 +4,15 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="google-signin-client_id" content="725700977079-mitl8qlg5sk25l3okofptpi3om59ndu8.apps.googleusercontent.com">
+   <!-- content="244293406216-4he96np7ff0p3893omspu6mf4l7jkcgg.apps.googleusercontent.com" -->
    <title>Learning Ocean</title>
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
    <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
@@ -35,6 +38,14 @@
          <a href="#teachers">Teachers</a>
          <a href="#reviews">Reviews</a>
          <a href="#" id="btn-login">Login</a>
+         <a href="#">
+            <div class="img-down">
+               <img src="" alt="profile">
+               <span class="material-symbols-outlined">
+                  arrow_drop_down
+                  </span>
+            </div>
+         </a>
       </nav>
 
       <div id="menu-btn" class="fas fa-bars"></div>
@@ -80,23 +91,28 @@
        </div>
 
        <div class="line"></div>
+       <div class="flex">
+         <div class="media-options">
+            <a href="#" class="field facebook ">
+                  <i class='bx bxl-facebook facebook-icon'></i>
+                  <span>Facebook</span>
+            </a>
+         </div>
+         
+         <div class="g-signin2" id="my-signin2" data-onsuccess="onSignIn"></div>
 
-       <div class="media-options">
-           <a href="#" class="field facebook">
-               <i class='bx bxl-facebook facebook-icon'></i>
-               <span>Login with Facebook</span>
-           </a>
-       </div>
-
-       <div class="media-options">
+      </div>
+      <div id="my-signin2"></div>
+       <!-- <div class="media-options">
            <a href="#" class="field google">
                <img src="images/google.png" alt="" class="google-img">
                <span>Login with Google</span>
            </a>
-       </div>
+       </div> -->
 
    </div>
 
+   <!-- #1d4d85 -->
    <!-- Signup Form -->
 
    <div class="form signup">
@@ -129,19 +145,24 @@
 
        <div class="line"></div>
 
-       <div class="media-options">
-           <a href="#" class="field facebook">
-               <i class='bx bxl-facebook facebook-icon'></i>
-               <span>Login with Facebook</span>
-           </a>
-       </div>
+       <div class="flex">
+         <div class="media-options">
+            <a href="#" class="field facebook ">
+                  <i class='bx bxl-facebook facebook-icon'></i>
+                  <span>Facebook</span>
+            </a>
+         </div>
+         
+         <div class="g-signin2" id="my-signin2" data-onsuccess="onSignIn"></div>
 
-       <div class="media-options">
+      </div>
+       <div id="my-signin2"></div>
+       <!-- <div class="media-options">
            <a href="#" class="field google">
                <img src="images/google.png" alt="" class="google-img">
                <span>Login with Google</span>
            </a>
-       </div>
+       </div> -->
 
    </div>
 </section>
@@ -604,9 +625,50 @@
 
 
 
-
-
-
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+   function onSuccess(googleUser){
+      console.log(googleUser);
+   }
+   function onFailure(error){
+      console.log(error);
+   }
+   function renderButton(){
+      gapi.signin2.render('my-signin2', {
+         'scope': 'profile email',
+         'width': 370,
+         'height': 50,
+         'longtitle': true,
+         'theme': 'dark',
+         'onsuccess': onSuccess,
+         'onfailure': onFailure
+      })
+}
+   function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+// function onSignIn(googleUser) {
+//   var profile = googleUser.getBasicProfile();
+// //   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//   console.log('Name: ' + googleUser.getBasicProfile().getName());
+// //   console.log('Image URL: ' + profile.getImageUrl());
+//   console.log('Email: ' + googleUser.getBasicProfile().getName()); // This is null if the 'email' scope is not present.
+// }
+</script>
+<!-- <a href="#" onclick="signOut();">Sign out</a> -->
+<!-- <script>
+   function signOut() {
+     var auth2 = gapi.auth2.getAuthInstance();
+     auth2.signOut().then(function () {
+       console.log('User signed out.');
+     });
+   }
+ </script> -->
 
 
 
